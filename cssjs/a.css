@@ -33,8 +33,15 @@ a {
 	color: red;
 	text-decoration: none;
 	display: inline-block;
-	cursor: pointer;
 	position: fixed;
 	bottom: 5px;
 	right: 5px;
+}
+
+.header {
+	color: red;
+}
+
+.header:hover {
+	filter: brightness(90%);
 }
