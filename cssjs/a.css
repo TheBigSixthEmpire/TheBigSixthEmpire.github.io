@@ -40,8 +40,9 @@ a {
 
 .header {
 	color: red;
+	filter: brightness(80%);
 }
 
 .header:hover {
-	filter: brightness(90%);
+	filter: brightness(50%);
 }
