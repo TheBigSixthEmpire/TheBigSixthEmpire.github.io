@@ -39,7 +39,7 @@ a {
 }
 
 .header {
-	color: red;
+	background-color: red;
 }
 
 .header:hover {
