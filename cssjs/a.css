@@ -29,7 +29,6 @@ a {
 	margin: 0px;
 	padding: 0px;
 	border-radius: 0px;
-	background-color: #ffffff;
 	color: red;
 	text-decoration: none;
 	display: inline-block;
@@ -38,9 +37,50 @@ a {
 	right: 5px;
 }
 
+.born {
+	margin: 0px;
+	padding: 0px;
+	border-radius: 0px;
+	color: red;
+	text-decoration: none;
+	display: inline-block;
+	position: fixed;
+	top: 5px;
+	right: 5px;
+}
+
+
+svg {
+    max-width: 100%;
+    max-height: 40vh;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    color: red;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    position: fixed; /* 固定在页面上 */
+    top: 0; /* 距离页面顶部的距离为 0 */
+    left: 0; /* 距离页面左侧的距离为 0 */
+}
+
+
+.peo {
+	margin: 0px;
+	padding: 0px;
+	border-radius: 0px;
+	color: red;
+	text-decoration: none;
+	display: inline-block;
+	position: fixed;
+	top: 5px;
+	left: 5px;
+}
+
 .header {
 	color: red;
-	filter: brightness(80%);
+	filter: brightness(70%);
 }
 
 .header:hover {
@@ -50,4 +90,10 @@ a {
 
 .href {
 	color: red;
+	filter: brightness(100%);
+}
+
+.href:hover {
+	color: red;
+	filter: brightness(60%);
 }

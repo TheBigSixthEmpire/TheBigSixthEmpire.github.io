@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Points Falling</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 防止点超出屏幕 */
+}
+
+.red-point {
+  width: 10px; /* 缩小为原来的一半 */
+  height: 10px; /* 缩小为原来的一半 */
+  background-color: red;
+  border-radius: 50%; /* 让圆点呈现圆形 */
+  position: absolute;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 20px solid red;
+  position: absolute;
+  top: -20px; /* 位于红色点的上方 */
+  left: -5px; /* 使三角形的底部中心与圆点重合 */
+  background: linear-gradient(to top, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0)); /* 底部红色向顶部逐渐变为透明 */
+}
+</style>
+</head>
+<body>
+<div id="container">
+  <!-- Points will be dynamically added here -->
+</div>
+<script>
+// 创建红色点的函数
+function createRedPoint() {
+  // 随机生成 0 到 99 之间的整数
+  const randomNumber = getRandomInt(0, 99);
+  
+  // 如果 randomNumber 小于 80，表示不生成红色点
+  if (randomNumber < 80) {
+    return;
+  }
+  
+  // 否则，生成一个红色点
+  const redPoint = document.createElement('div');
+  redPoint.classList.add('red-point');
+  
+  // 设置随机的初始位置
+  const initialX = Math.random() * window.innerWidth;
+  redPoint.style.left = initialX + 'px';
+  redPoint.style.top = '0px'; // 初始位置在顶部
+  
+  // 创建三角形
+  const triangle = document.createElement('div');
+  triangle.classList.add('triangle');
+  
+  // 将三角形添加到容器中
+  redPoint.appendChild(triangle);
+  
+  // 将红色点添加到容器中
+  document.getElementById('container').appendChild(redPoint);
+  
+  // 开始向下掉落
+  fallDown(redPoint);
+}
+
+// 红色点向下掉落的函数
+function fallDown(redPoint) {
+  // 设置掉落的速度为固定值
+  const speed = 3; // 可调整速度
+  
+  // 设置掉落的动画
+  function animate() {
+    // 获取红色点当前的纵坐标
+    let currentY = parseInt(redPoint.style.top);
+    
+    // 计算下一帧纵坐标
+    let newY = currentY + speed;
+    
+    // 更新红色点的位置
+    redPoint.style.top = newY + 'px';
+    
+    // 更新三角形的位置
+    const triangle = redPoint.querySelector('.triangle');
+    triangle.style.top = (-20 - newY) + 'px'; // 基于红色点的位置更新三角形的位置
+    
+    // 如果红色点超出屏幕底部，则移除红色点
+    if (newY > window.innerHeight) {
+      redPoint.parentNode.removeChild(redPoint);
+    } else {
+      // 否则，继续下一帧动画
+      requestAnimationFrame(animate);
+    }
+  }
+  
+  // 启动动画
+  animate();
+}
+
+// 生成指定范围内的随机整数
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// 每隔随机时间创建一个红色点
+function generateRedPoints() {
+  createRedPoint();
+  setTimeout(generateRedPoints, 50); // 每隔 0.05 秒生成一次
+}
+
+// 调用生成红色点的函数
+generateRedPoints();
+</script>
+</body>
+</html>
+

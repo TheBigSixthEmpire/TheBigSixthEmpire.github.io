@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>大六班帝国逃离游戏</title>
+	<meta charset="UTF-8">
+	<link rel="icon" href="/file/icon.png" type="image/x-icon">
+	<link rel="stylesheet" href="/cssjs/a.css">
+	<style>
+		html {
+			user-select: none;
+		}
+	</style>
+</head>
+
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1600 900">
+    <g>
+        <rect x="0" y="0" width="1600" height="900" fill="white" stroke="white" stroke-width="5"/>
+    </g>
+    <g>
+        <rect x="0" y="600" width="1600" height="200" fill="red" stroke="black" stroke-width="5"/>
+        <text x="800" y="700" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">2</text>
+    </g>
+    <g>
+        <rect x="1500" y="100" width="100" height="500" fill="red" stroke="black" stroke-width="5"/>
+        <text x="1550" y="350" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">3</text>
+    </g>
+    <g>
+        <rect x="1400" y="0" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="1500" y="50" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">4</text>
+    </g>
+    <g>
+        <rect x="1300" y="0" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="1350" y="50" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">5</text>
+    </g>
+    <g>
+        <rect x="0" y="100" width="100" height="500" fill="red" stroke="black" stroke-width="5"/>
+        <text x="50" y="350" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">6</text>
+    </g>
+    <g>
+        <rect x="0" y="0" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="100" y="50" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">7</text>
+    </g>
+    <g>
+        <rect x="200" y="0" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="250" y="50" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">8</text>
+    </g>
+    <g>
+        <rect x="1400" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="1500" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一一班</text>
+    </g>
+    <g>
+        <rect x="1200" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="1300" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一二班</text>
+    </g>
+    <g>
+        <rect x="1000" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="1100" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一三班</text>
+    </g>
+    <g>
+        <rect x="600" y="800" width="400" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="800" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">南门</text>
+    </g>
+    <g>
+        <rect x="400" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="500" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一四班</text>
+    </g>
+    <g>
+        <rect x="200" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="300" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一五班</text>
+    </g>
+    <g>
+        <rect x="0" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
+        <text x="100" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一六班</text>
+    </g>
+</svg>
+
+
+
+	<div style="padding-top: 40vh;">
+	<p>1</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	<p>xxx</p>
+	</div>
+	<p class="editor">制作者:lwh</p>
+	<script>
+		// 读取名为 peo 的 cookie
+		function getPeoFromCookie() {
+			const cookies = document.cookie.split(';');
+			for (let i = 0; i < cookies.length; i++) {
+				const cookie = cookies[i].trim();
+				if (cookie.startsWith('peo=')) {
+					return cookie.substring(4); // 返回 peo 的值
+				}
+			}
+			return null; // 如果未找到 peo 的 cookie，则返回 null
+		}
+		
+		function setCookie(role) {
+			document.cookie = `peo=${role}`;
+		}
+		function deleting(){
+			document.cookie = "peo=; path=/;";
+			window.location.href = '/';
+		}
+
+		// 获取角色信息并根据其值在页面上显示相应的信息
+		window.onload = function () {
+			const role = getPeoFromCookie();
+			if (role === 'dandan') {
+				const headerHtml = `
+				<h3><p class="peo">你现在是:单单</p>
+				<a onclick="deleting()" class="href born">重生</a></h3>
+				`;
+				const newContent = document.createElement('div');
+				newContent.innerHTML = headerHtml;
+				document.body.insertBefore(newContent, document.body.firstChild);
+			} else if (role === 'chang') {
+				const headerHtml = `
+				<h3><p class="peo">你现在是:阿长</p>
+				<a onclick="deleting()" class="href born">重生</a></h3>
+				`;
+				const newContent = document.createElement('div');
+				newContent.innerHTML = headerHtml;
+				document.body.insertBefore(newContent, document.body.firstChild);
+			} else if (role === 'pen') {
+				const headerHtml = `
+				<h3><p class="peo">你现在是:钢盆</p>
+				<a onclick="deleting()" class="href born">重生</a></h3>
+				`;
+				const newContent = document.createElement('div');
+				newContent.innerHTML = headerHtml;
+				document.body.insertBefore(newContent, document.body.firstChild);
+			} else if (role === 'sheep') {
+				const headerHtml = `
+				<h3><p class="peo">你现在是:张绵羊</p>
+				<a onclick="deleting()" class="href born">重生</a></h3>
+				`;
+				const newContent = document.createElement('div');
+				newContent.innerHTML = headerHtml;
+				document.body.insertBefore(newContent, document.body.firstChild);
+			} else {
+				deleting();
+			}
+		};
+	</script>
+</body>
+
+</html>
+

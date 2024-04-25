@@ -2,25 +2,89 @@
 <html>
 
 <head>
-	<title>大六班帝国逃离游戏</title>
-	<meta charset="UTF-8">
-	<link rel="icon" href="/file/icon.png" type="image/x-icon">
-	<link rel="stylesheet" href="/cssjs/a.css">
-	<style>
-		html {
-			user-select: none;
-		}
-	</style>
+    <title>大六班帝国逃离游戏</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/file/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/cssjs/a.css">
+    <style>
+        html {
+            user-select: none;
+        }
+    </style>
 </head>
 
 <body>
-	<a href=""><img class="icon" src="/file/icon.png"></a>
-	<h1><a class="header">大六班帝国逃离游戏</a><br></h1>
-	<h2><a class="header">你被困在教室里</a><br></h2>
-	<h2><a class="header">所有门窗都上了锁</a><br></h2>
-	<h2><a class="header">教室里一共有五个人</a><br></h2>
-	<h2><a class="header">分别是<a class="href" href="/game/dandan">"单单"</a> <a class="href" href="/game/chang">"阿长"</a> <a class="href" href="/game/pen">"盆"</a> <a class="sheep" href="/">"张绵羊"</a></a><br></h2>
-	<p class="editor">制作者:lwh</p>
+    <p class="editor">制作者:lwh</p>
+
+    <script>
+        // 检查是否存在名为 peo 的 cookie
+        function checkCookie() {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith('peo=')) {
+                    return cookie.substring(4); // 返回已选择的角色信息
+                }
+            }
+            return null; // 如果未找到 peo 的 cookie，则返回 null
+        }
+
+        // 设置名为 peo 的 cookie，值为指定的角色
+        function setCookie(role) {
+            document.cookie = `peo=${role}`;
+        }
+
+        // 函数：选择 "单单" 角色，并设置 cookie
+        function dandan() {
+            setCookie('dandan');
+            window.location.href = '/game'; // 跳转到 /game 页面
+        }
+
+        // 函数：选择 "阿长" 角色，并设置 cookie
+        function chang() {
+            setCookie('chang');
+            window.location.href = '/game'; // 跳转到 /game 页面
+        }
+
+        // 函数：选择 "盆" 角色，并设置 cookie
+        function pen() {
+            setCookie('pen');
+            window.location.href = '/game'; // 跳转到 /game 页面
+        }
+
+        // 函数：选择 "张绵羊" 角色，并设置 cookie
+        function sheep() {
+            setCookie('sheep');
+            window.location.href = '/game'; // 跳转到 /game 页面
+        }
+
+        // 页面加载时的操作
+        window.onload = function () {
+            const selectedRole = checkCookie();
+            if(selectedRole === "dandan" || selectedRole === "chang" || selectedRole === "pen" || selectedRole === "sheep"){
+                // 如果已选择角色，则提供重新选择或继续游戏选项
+                const headerHtml = `
+                <h2><a class="header">检测到已选择人物，是否重新选择人物并开始<a class="href" onclick="dandan()">"单单"</a> <a class="href" onclick="chang()">"阿长"</a> <a class="href" onclick="pen()">"钢盆"</a> <a class="href" onclick="sheep()">"张绵羊"</a><a class="header">或</a><a class="href" href="/game">"继续游戏"</a><br></h2>
+                `;
+                const newContent = document.createElement('div');
+                newContent.innerHTML = headerHtml;
+                document.body.insertBefore(newContent, document.body.firstChild);
+            }else{
+                // 如果未选择角色，则向页面添加角色选择界面
+                const headerHtml = `
+                <h1><a class="header">大六班帝国逃离游戏</a><br></h1>
+                <h2><a class="header">你被困在教室里</a><br></h2>
+                <h2><a class="header">所有门窗都上了锁</a><br></h2>
+                <h2><a class="header">教室里一共有五个人</a><br></h2>
+                <h2><a class="header">分别是<a class="href" onclick="dandan()">"单单"</a> <a class="href" onclick="chang()">"阿长"</a> <a class="href" onclick="pen()">"钢盆"</a> <a class="href" onclick="sheep()">"张绵羊"</a></a><br></h2>
+                `;
+                const newContent = document.createElement('div');
+                newContent.innerHTML = headerHtml;
+                document.body.insertBefore(newContent, document.body.firstChild);
+            }
+        }
+    </script>
 </body>
 
 </html>
+
