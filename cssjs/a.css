@@ -52,17 +52,12 @@ a {
 
 svg {
     max-width: 100%;
-    max-height: 40vh;
+    max-height: calc(80vh - 50px);
     margin: 0;
     padding: 0;
     border-radius: 0;
     color: red;
-    text-decoration: none;
-    display: inline-block;
     text-align: center;
-    position: fixed; /* 固定在页面上 */
-    top: 0; /* 距离页面顶部的距离为 0 */
-    left: 0; /* 距离页面左侧的距离为 0 */
 }
 
 
