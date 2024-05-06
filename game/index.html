@@ -14,8 +14,8 @@
 </head>
 
 <body>
-	<p>X 坐标：<span id="x">280</span></p>
-	<p>Y 坐标：<span id="y">880</span></p>
+	<p>X 坐标：<span id="x"></span></p>
+	<p>Y 坐标：<span id="y"></span></p>
 	<p>1</p>
 	<p>xxx</p>
 	<p>xxx</p>
@@ -52,180 +52,28 @@
 	<p class="editor">制作者:lwh</p>
 	<script src="/cssjs/a.js"></script>
 	<script>
+	function nohave(className) {
+		var rect = document.querySelector(className);
+		if (rect) {
+			rect.setAttribute('fill', "red");
+		} else {
+			console.error('未找到指定类名的元素。');
+		}
+	}
+	function have(className) {
+		var rect = document.querySelector(className);
+		if (rect) {
+			rect.setAttribute('fill', "white");
+		} else {
+			console.error('未找到指定类名的元素。');
+		}
+	}
 	function outputClasses(element) {
 		var classes = element.className.split(' ');
 		console.log("所有的 class：", classes);
 	}
-	const svgg=`
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1700 900" style="margin-top: 30px;">
-    <g>
-        <rect x="0" y="0" width="1700" height="900" fill="white" stroke="white" stroke-width="5"/>
-    </g>
-    <g>
-        <rect class="way1-1" id="way1-1" x="100" y="600" width="1600" height="200" fill="red" stroke="black" stroke-width="5"/>
-        <text x="900" y="700" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">走廊</text>
-    </g>
-    <g>
-        <rect x="300" y="500" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="400" y="550" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">西侧楼梯</text>
-    </g>
-    <g>
-        <rect x="1300" y="500" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="1400" y="550" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">东侧楼梯</text>
-    </g>
-    <g>
-        <rect x="0" y="600" width="100" height="200" fill="red" stroke="black" stroke-width="5"/>
-        <text x="50" y="700" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">西门</text>
-    </g>
-    <g>
-        <rect class="way1-2" x="1500" y="0" width="100" height="600" fill="red" stroke="black" stroke-width="5"/>
-        <text x="1550" y="325" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">东侧</text>
-        <text x="1550" y="375" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">走廊</text>
-    </g>
-    <g>
-        <rect x="1600" y="100" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="1650" y="125" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">女</text>
-        <text x="1650" y="175" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">厕所</text>
-    </g>
-    <g>
-        <rect x="1600" y="200" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="1650" y="225" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">洗手</text>
-        <text x="1650" y="275" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">池</text>
-    </g>
-    <g>
-        <rect x="1600" y="300" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="1650" y="325" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">男</text>
-        <text x="1650" y="375" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">厕所</text>
-    </g>
-    <g>
-        <rect x="1400" y="0" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="1450" y="25" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">东外</text>
-        <text x="1450" y="75" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">楼梯</text>
-    </g>
-    <g>
-        <rect class="way1-3" x="200" y="0" width="100" height="600" fill="red" stroke="black" stroke-width="5"/>
-        <text x="250" y="275" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">西侧</text>
-        <text x="250" y="325" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">走廊</text>
-    </g>
-    <g>
-        <rect x="100" y="0" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="150" y="25" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">医务</text>
-        <text x="150" y="75" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">室</text>
-    </g>
-    <g>
-        <rect x="100" y="100" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="150" y="125" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">女</text>
-        <text x="150" y="175" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">厕所</text>
-    </g>
-    <g>
-        <rect x="100" y="200" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="150" y="225" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">洗手</text>
-        <text x="150" y="275" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">池</text>
-    </g>
-    <g>
-        <rect x="100" y="400" width="100" height="200" fill="red" stroke="black" stroke-width="5"/>
-        <text x="150" y="475" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">体育</text>
-        <text x="150" y="525" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">组</text>
-    </g>
-    <g>
-        <rect x="100" y="300" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="150" y="325" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">男</text>
-        <text x="150" y="375" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">厕所</text>
-    </g>
-    <g>
-        <rect x="300" y="0" width="100" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="350" y="25" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">西外</text>
-        <text x="350" y="75" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">楼梯</text>
-    </g>
-    <g>
-        <rect x="1500" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="1600" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一一班</text>
-    </g>
-    <g>
-        <rect x="1300" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="1400" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一二班</text>
-    </g>
-    <g>
-        <rect x="1100" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="1200" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一三班</text>
-    </g>
-    <g>
-        <rect x="700" y="800" width="400" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="900" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">南门</text>
-    </g>
-    <g>
-        <rect x="500" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="600" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一四班</text>
-    </g>
-    <g>
-        <rect x="300" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="400" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一五班</text>
-    </g>
-    <g>
-        <rect x="100" y="800" width="200" height="100" fill="red" stroke="black" stroke-width="5"/>
-        <text x="200" y="850" text-anchor="middle" alignment-baseline="middle" font-size="40" fill="black">初一六班</text>
-    </g>
-    <rect id="a" x="280" y="880" width="20" height="20" fill="yellow" stroke="blue" stroke-width="2"/>
-`;
-		// 读取名为 peo 的 cookie
-		function getPeoFromCookie() {
-			const cookies = document.cookie.split(';');
-			for (let i = 0; i < cookies.length; i++) {
-				const cookie = cookies[i].trim();
-				if (cookie.startsWith('peo=')) {
-					return cookie.substring(4); // 返回 peo 的值
-				}
-			}
-			return null; // 如果未找到 peo 的 cookie，则返回 null
-		}
-		
-		function setCookie(role) {
-			document.cookie = `peo=${role}`;
-		}
-		function deleting(){
-			document.cookie = "peo=; path=/;";
-			window.location.href = '/';
-		}
-
-		// 获取角色信息并根据其值在页面上显示相应的信息
-		window.onload = function () {
-			const role = getPeoFromCookie();
-			if (role === 'dandan') {
-				const headerHtml = svgg+`
-				<h3><p class="peo">你现在是:单单</p>
-				<a onclick="deleting()" class="href born">重生</a></h3>
-				`;
-				const newContent = document.createElement('div');
-				newContent.innerHTML = headerHtml;
-				document.body.insertBefore(newContent, document.body.firstChild);
-			} else if (role === 'chang') {
-				const headerHtml = svgg+`
-				<h3><p class="peo">你现在是:阿长</p>
-				<a onclick="deleting()" class="href born">重生</a></h3>
-				`;
-				const newContent = document.createElement('div');
-				newContent.innerHTML = headerHtml;
-				document.body.insertBefore(newContent, document.body.firstChild);
-			} else if (role === 'pen') {
-				const headerHtml = svgg+`
-				<h3><p class="peo">你现在是:钢盆</p>
-				<a onclick="deleting()" class="href born">重生</a></h3>
-				`;
-				const newContent = document.createElement('div');
-				newContent.innerHTML = headerHtml;
-				document.body.insertBefore(newContent, document.body.firstChild);
-			} else if (role === 'sheep') {
-				const headerHtml = svgg+`
-				<h3><p class="peo">你现在是:张绵羊</p>
-				<a onclick="deleting()" class="href born">重生</a></h3>
-				`;
-				const newContent = document.createElement('div');
-				newContent.innerHTML = headerHtml;
-				document.body.insertBefore(newContent, document.body.firstChild);
-			} else {
-				deleting();
-			}
-		};
+	// 获取角色信息并根据其值在页面上显示相应的信息
+	window.onload = reload();
 	</script>
 </body>
 

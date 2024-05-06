@@ -73,6 +73,20 @@ svg {
 	left: 5px;
 }
 
+
+.place {
+	left: 0px;
+	right: 0px;
+	margin: 0px;
+	padding: 0px;
+	border-radius: 0px;
+	color: red;
+	text-decoration: none;
+	display: inline-block;
+	position: fixed;
+	top: 5px;
+}
+
 .header {
 	color: red;
 	filter: brightness(70%);

@@ -29,9 +29,51 @@
             return null; // 如果未找到 peo 的 cookie，则返回 null
         }
 
+// 读取名为a的cookie
+function cread(a) {
+    var nameEQ = a + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+// 修改名为a的cookie内容为b
+function cwrite(a, b) {
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000)); // 设置过期时间为一年后
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = a + "=" + b + ";" + expires + ";path=/";
+}
+
+// 修改名为a的cookie内容为空
+function cremove(a) {
+    document.cookie = a + '=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+}
+
+// 删除所有cookie为空
+function removeall() {
+    var cookies = document.cookie.split("; ");
+    for (var c = 0; c < cookies.length; c++) {
+        var d = window.location.hostname.split(".");
+        while (d.length > 0) {
+            var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=/';
+            var p = location.pathname.split('/');
+            document.cookie = cookieBase + '; path=/';
+            while (p.length > 0) {
+                document.cookie = cookieBase + '; path=' + p.join('/');
+                p.pop();
+            }
+            d.shift();
+        }
+    }
+}
         // 设置名为 peo 的 cookie，值为指定的角色
         function setCookie(role) {
-            document.cookie = `peo=${role}`;
+            cwrite("peo",role);
         }
 
         // 函数：选择 "单单" 角色，并设置 cookie
